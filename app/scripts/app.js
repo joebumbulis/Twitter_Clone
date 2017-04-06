@@ -2,12 +2,12 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from './middleware/thunk.js'
 import logger from './middleware/logger.js'
 
-import exampleView from './views/example_view.js'
+import loginView from './views/login_view.js'
 
 export default function app() {
 
     const initialState = {
-      view: exampleView
+      view: loginView
     }
 
     const reducer = function (state, action) {

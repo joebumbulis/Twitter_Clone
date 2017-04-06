@@ -1,16 +1,51 @@
-$big-font: 15rem;
+@import "vars";
 
-.jumbo {
-    color: #333;
-    font-size: $big-font;
-    margin: 0;
-    text-shadow: 1px 2px 1px #DEDEDE, 2px 3px 0 #FEFEFE, -1px -1px 0 #222;
-}
 
 html {
     body {
         margin: 0;
         padding: 0;
-        background: #CACACA;
+        background: #fff;
     }
+}
+
+.login-screen {
+  text-align: center;
+  font-family: $font-family-primary;
+  font-size: 2.5rem;
+  .grackle-img {
+    width: 100px;
+    margin-top: 3rem;
+    background-color: $color-primary;
+    border-radius: 1rem;
+
+  }
+
+  .login-input {
+    background: $color-sixth;
+    width: 90%;
+    height: 7rem;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    padding-left: 1rem;
+    border: none;
+  }
+  .login-btn {
+    background: $color-primary;
+    display: block;
+    margin: 1rem auto;
+    width: 90%;
+    height: 7rem;
+    font-size: 2.5rem;
+    color: $color-fifth;
+    border: none;
+    border-radius: 1rem;
+  }
+  .login-pswd {
+    font-size: .5rem;
+    color: $color-primary;
+    font-size: 2rem;
+    margin-top: 4rem;
+  }
 }
