@@ -1,4 +1,5 @@
-export default function logAndLoad (username, password) {
+export default function logAndLoad (userEmail, password) {
+  state = store.getState()
   /*
   *   Action to Login user and load all screeches
   */
@@ -19,23 +20,37 @@ export default function logAndLoad (username, password) {
         'Content-Type': 'application/json',
         'application-type': 'REST'
       }
-      data: {
-      }
-    }).then(function (response) {
+      data: JSON.stringify({
+        email: userEmail,
+        password: password
+      })
+    }).then( (response) => {
+      console.log(response);
       //After the ajax call dispatch any needed actions
       dispatch({
         type: "AUTHENTICATED_USER",
-        userID: response.userId,
+        userID: response.ownerId,
         userToken: response['user-token'],
-        user: username
+        username: response.username,
+        name: response.name
+        bio: response.bio,
+        email: response.email,
+        joinedDate: new Date(response.created)
        });
-    }).then(function () {
+    }).then( ()=> {
       //This GET request is to load the screechessss
       $.ajax({
-
+        type: 'GET',
+        dataType: 'json',
+        url: 'https://api.backendless.com/v1/data/messages',
+        headers: {
+          'application-id': "85577861-2A70-62E0-FFC7-B56EDDAFC300",
+          "secret-key": "71A87D8E-1294-CD5F-FFF6-C9311CC4CD00",
+          'user-token': state.Token
+        }
       }).then(function (response) {
         //The screechessss
-
+        var screeches =
         dispatch({
           type: "LOADED_SCREECHES",
           screeches: response.data

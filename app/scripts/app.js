@@ -11,7 +11,7 @@ import loginView from './views/login_view.js'
 export default function app() {
 
     const initialState = {
-        user: " ",
+        user: '',
         messages: [],
         view: loginView
     }
@@ -23,35 +23,43 @@ export default function app() {
 
         switch (action.type) {
             case "START":
-
-          //set timeout for sign in? 
                 return state;
 
             case "STARTING_USER_LOGIN":
-              console.log("Starting Login");
-              return state;
+                console.log("Starting Login");
+                return state;
 
             case "AUTHENTICATED_USER":
-              return Object.assign({}, state, {
-               // Fill in data sent with dispatch
-              });
+                console.log("User is authenticated");
+                var newState = {
+                    // Fill in data sent with dispatch
+                    id: action.userID,
+                    userToken: action.userToken,
+                    user: action.username,
+                    name: action.name,
+                    bio: action.bio,
+                    email: action.email,
+                    joinedDate: action.joinedDate,
+                }
+                return Object.assign({}, state, newState);
 
 
             case "LOADED_SCREECHES":
                 console.log('User Logged In!');
                 var newUser = action.user
 
-                    return utils.copystate(currentState, {
-                        // loadingScreeches: true,
-                        currentUser: action.email,
-                        view: screechView
-                    });
-                }
+                return utils.copystate(currentState, {
+                    // loadingScreeches: true,
+                    currentUser: action.email,
+                    view: screechView
+                });
+
 
 
             default:
                 console.debug(`Unhandled Action: ${action.type}!`);
                 return state;
+
         };
     };
 
