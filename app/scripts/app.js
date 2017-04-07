@@ -7,13 +7,13 @@ import logger from './middleware/logger.js'
 import utils from './utils.js'
 
 import loginView from './views/login_view.js'
-import logAndLoad from './action/log_and_load.js'
+import logAndLoad from './actions/log_and_load.js'
 
 export default function app() {
 
     const initialState = {
         user: '',
-        messages: [],
+        screeches: [],
         view: loginView
     }
 
@@ -46,8 +46,10 @@ export default function app() {
 
 
             case "LOADED_SCREECHES":
-                console.log('User Logged In!');
-                var newUser = action.user
+                console.log('Screeches Loaded');
+                var newState = {
+                  screeches: action.screeches
+                }
 
                 return utils.copystate(currentState, {
                     // loadingScreeches: true,
