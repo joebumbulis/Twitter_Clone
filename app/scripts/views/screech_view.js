@@ -1,7 +1,7 @@
-export default function screechViewstore) {
-  let state = store.getState();
-  var token = state.userToken;
-  console.log(token);
+export default function screechView(store) {
+  // let state = store.getState();
+  // var token = state.userToken;
+  // console.log(token);
 
   //Create the HTML
   let $html = $(`

@@ -1,5 +1,5 @@
-export default function logAndLoad (userEmail, password) {
-  state = store.getState()
+export default function logAndLoad (email, password) {
+  // state = store.getState()
   /*
   *   Action to Login user and load all screeches
   */
@@ -7,7 +7,8 @@ export default function logAndLoad (userEmail, password) {
   return function (dispatch) {
     //Before ajax call dispatch any needed actions
     dispatch( { type: "STARTING_USER_LOGIN" });
-
+    console.log(email);
+    console.log(password);
     //Do the ajax call
     return  $.ajax({
       //fill in with post to login user
@@ -15,17 +16,17 @@ export default function logAndLoad (userEmail, password) {
       contentType: 'application/json',
       url: 'http://api.backendless.com/v1/users/login',
       headers: {
-        'application-id': "85577861-2A70-62E0-FFC7-B56EDDAFC300",
+        "application-id": "85577861-2A70-62E0-FFC7-B56EDDAFC300",
         "secret-key": "71A87D8E-1294-CD5F-FFF6-C9311CC4CD00",
-        'Content-Type': 'application/json',
-        'application-type': 'REST'
+        "Content-Type": 'application/json',
+        "application-type": 'REST'
       },
       data: JSON.stringify({
-        email: userEmail,
+        login: email,
         password: password
       })
-    }).then( (response) => {
-      console.log(response);
+    }).then( (response, status) => {
+      console.log(response, status);
       //After the ajax call dispatch any needed actions
       dispatch({
         type: "AUTHENTICATED_USER",
@@ -38,6 +39,7 @@ export default function logAndLoad (userEmail, password) {
         joinedDate: new Date(response.created)
        });
     }).then( ()=> {
+      console.log();
       //This GET request is to load the screechessss
       $.ajax({
         type: 'GET',
@@ -50,18 +52,19 @@ export default function logAndLoad (userEmail, password) {
         }
       }).then(function (response) {
         //The screechessss
-        var screeches = response.data.map((screech)=>{
-          return {
-            bio: screech.body,
-            chip: screech.chip,
-            user: screech.user,
-            date: new Date(screech.created)
-          }
-        })
-        dispatch({
-          type: "LOADED_SCREECHES",
-          screeches: screeches,
-        })
+        console.log(response);
+        // var screeches = response.data.map((screech)=>{
+        //   let screeches = {
+        //     bio: screech.body,
+        //     chip: screech.chip,
+        //     user: screech.user,
+        //     date: new Date(screech.created),
+        //   };
+        //   dispatch({
+        //     type: "LOADED_SCREECHES",
+        //     screeches: screeches
+        //   })
+        // })
       });
     })
   }

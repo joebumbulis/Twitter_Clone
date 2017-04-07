@@ -8,6 +8,7 @@ import utils from './utils.js'
 
 import loginView from './views/login_view.js'
 import logAndLoad from './actions/log_and_load.js'
+import screechView from './views/screech_view.js'
 
 export default function app() {
 
@@ -48,14 +49,16 @@ export default function app() {
             case "LOADED_SCREECHES":
                 console.log('Screeches Loaded');
                 var newState = {
-                  screeches: action.screeches
+                  screeches: action.screeches,
+                  view: screechView
                 }
+                return Object.assign({}, state, newState);
 
-                return utils.copystate(currentState, {
-                    // loadingScreeches: true,
-                    currentUser: action.email,
-                    view: screechView
-                });
+                // return utils.copystate(currentState, {
+                //     // loadingScreeches: true,
+                //     currentUser: action.email,
+                //     view: screechView
+                // });
 
 
 
