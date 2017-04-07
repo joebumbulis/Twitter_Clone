@@ -1,4 +1,5 @@
-import logAndLoad from './actions/log_and_load.js'
+import logAndLoad from '../actions/log_and_load.js'
+
 export default function loginView(store) {
   let state = store.getState();
 

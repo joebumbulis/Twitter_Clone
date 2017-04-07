@@ -19,7 +19,7 @@ export default function logAndLoad (userEmail, password) {
         "secret-key": "71A87D8E-1294-CD5F-FFF6-C9311CC4CD00",
         'Content-Type': 'application/json',
         'application-type': 'REST'
-      }
+      },
       data: JSON.stringify({
         email: userEmail,
         password: password
@@ -32,7 +32,7 @@ export default function logAndLoad (userEmail, password) {
         userID: response.ownerId,
         userToken: response['user-token'],
         username: response.username,
-        name: response.name
+        name: response.name,
         bio: response.bio,
         email: response.email,
         joinedDate: new Date(response.created)
