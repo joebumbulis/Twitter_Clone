@@ -23,24 +23,32 @@ export default function app() {
 
         switch (action.type) {
             case "START":
+
+          //set timeout for sign in? 
                 return state;
 
-            case "LOGIN_USER":
+            case "STARTING_USER_LOGIN":
+              console.log("Starting Login");
+              return state;
+
+            case "AUTHENTICATED_USER":
+              return Object.assign({}, state, {
+               // Fill in data sent with dispatch
+              });
+
+
+            case "LOADED_SCREECHES":
                 console.log('User Logged In!');
                 var newUser = action.user
-                if (action.email === '' || action.password === '') {
-                    alert('Complete Form')
-                } else {
-                    setTimeout(() => {
-                        actions.getAllScreeches(store)
-                    }, 2000);
 
                     return utils.copystate(currentState, {
-                        loadingScreeches: true,
+                        // loadingScreeches: true,
                         currentUser: action.email,
-                        view: screechFeed
+                        view: screechView
                     });
                 }
+
+
             default:
                 console.debug(`Unhandled Action: ${action.type}!`);
                 return state;

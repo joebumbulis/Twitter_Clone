@@ -1,3 +1,4 @@
+import logAndLoad from './actions/log_and_load.js'
 export default function loginView(store) {
   let state = store.getState();
 
@@ -15,14 +16,11 @@ export default function loginView(store) {
 
   //Assign any event listeners
 $($html).find('.login-btn').on('click', (e) => {
-  store.dispatch({
-    type: "LOGIN_USER",
-    email: 'joebumbulis@gmail.com',
-    // $('#login-email').val(),
-    password: 'password'
-    // $('#password').val(),
-  })
-})
+  // if (action.email === '' || action.password === '') {
+  //     alert('Complete Form')
+  // } else {
+  store.dispatch(logAndLoad('joebumbulis@gmail.com', 'password'));
+});
 
   //Return the html
   return $html;
