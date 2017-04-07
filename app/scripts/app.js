@@ -7,6 +7,7 @@ import logger from './middleware/logger.js'
 import utils from './utils.js'
 
 import loginView from './views/login_view.js'
+import logAndLoad from './action/log_and_load.js'
 
 export default function app() {
 

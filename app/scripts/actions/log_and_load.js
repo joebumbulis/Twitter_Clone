@@ -50,20 +50,19 @@ export default function logAndLoad (userEmail, password) {
         }
       }).then(function (response) {
         //The screechessss
-        var screeches =
+        var screeches = response.data.map((screech)=>{
+          return {
+            bio: screech.body,
+            chip: screech.chip,
+            user: screech.user,
+            date: new Date(screech.created)
+          }
+        })
         dispatch({
           type: "LOADED_SCREECHES",
-          screeches: response.data
+          screeches: screeches,
         })
       });
     })
   }
 }
-
-// const url = 'http://api.backendless.com/v1/users/login'
-// const api = {
-//   getAllScreeches: function (store) {
-//     $.getJSON(url).then((data) => {
-//       store.dispatch(actions.todosLoaded(data));
-//     });
-//   },
