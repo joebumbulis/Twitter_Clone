@@ -1,4 +1,4 @@
-export default function exampleAsyncAction () {
+export default function Actions () {
   //All async action creators should return a function that takes 'dispatch' as its argument
   return function (dispatch) {
     //Before ajax call dispatch any needed actions
@@ -18,3 +18,11 @@ export default function exampleAsyncAction () {
     })
   }
 }
+
+const url = 'http://tiny-za-server.herokuapp.com/collections/flux-todo';
+const api = {
+  getAllTodos: function (store) {
+    $.getJSON(url).then((data) => {
+      store.dispatch(actions.todosLoaded(data));
+    });
+  },

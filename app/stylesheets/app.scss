@@ -1,6 +1,5 @@
 @import "vars";
 
-
 html {
     body {
         margin: 0;
@@ -9,43 +8,47 @@ html {
     }
 }
 
-.login-screen {
-  text-align: center;
-  font-family: $font-family-primary;
-  font-size: 2.5rem;
-  .grackle-img {
-    width: 100px;
-    margin-top: 3rem;
-    background-color: $color-primary;
-    border-radius: 1rem;
+//ask justin about media queries syntax.
+      // @media all and (min-width: 375px) and (max-width: 599px) {
+    .login-screen {
+        text-align: center;
+        font-family: $font-family-primary;
+        font-size: 2.5rem;
 
-  }
+        .grackle-img {
+            width: 100px;
+            margin-top: 3rem;
+            background-color: $color-primary;
+            border-radius: 1rem;
+        }
 
-  .login-input {
-    background: $color-sixth;
-    width: 90%;
-    height: 7rem;
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    border-radius: 1rem;
-    padding-left: 1rem;
-    border: none;
-  }
-  .login-btn {
-    background: $color-primary;
-    display: block;
-    margin: 1rem auto;
-    width: 90%;
-    height: 7rem;
-    font-size: 2.5rem;
-    color: $color-fifth;
-    border: none;
-    border-radius: 1rem;
-  }
-  .login-pswd {
-    font-size: .5rem;
-    color: $color-primary;
-    font-size: 2rem;
-    margin-top: 4rem;
-  }
-}
+        .login-input {
+            background: $color-sixth;
+            width: 90%;
+            height: 7rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            border-radius: 1rem;
+            padding-left: 1rem;
+            border: none;
+        }
+
+        .login-btn {
+            background: $color-primary;
+            display: block;
+            margin: 1rem auto;
+            width: 90%;
+            height: 7rem;
+            font-size: 2.5rem;
+            color: $color-fifth;
+            border: none;
+            border-radius: 1rem;
+        }
+
+        .login-pswd {
+            font-size: 0.5rem;
+            color: $color-primary;
+            font-size: 2rem;
+            margin-top: 4rem;
+        }
+    }
