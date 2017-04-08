@@ -15,7 +15,7 @@ export default function app() {
     const initialState = {
         user: '',
         screeches: [],
-        view: loginView
+        // view: loginView
     }
 
     const reducer = function(state, action) {

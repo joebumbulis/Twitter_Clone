@@ -1,0 +1,19 @@
+.primary-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  border-bottom: solid .1rem $color-greyTwo;
+  background: $color-fifth;
+
+  a {
+    text-decoration: none;
+    color: $color-greyTwo;
+
+  }
+  .grackle-img {
+      width: 50px;
+      margin-top: 2rem;
+      background-color: $color-primary;
+      border-radius: 1rem;
+  }
+}
