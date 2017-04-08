@@ -1,29 +1,81 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Grackle</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./styles.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <section id="app">
+        <header class="primary-header">
+            <a href="#"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+            <a href="#"><i class="fa fa-bolt" aria-hidden="true"></i>Moments</a>
+            <a href="#"><i class="fa fa-bell" aria-hidden="true"></i>Notifications</a>
+            <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>Messages</a>
+            <img class="grackle-img" src="app/images/Grackles_001.png" alt="">
+            <input class="search-input" type="text" name="" placeholder="search grackle">
+            <a href="#"><img src="" alt="profile image"></a>
+            <a href="#"><img src="" alt="screech-box"></a>
+        </header>
+        <main class="screech-feed">
+          <section class="post-screech-feed-top">
+            <img src="" alt="profile pic">
+            <input type="text" name="" placeholder="What's Gracklin'?">
+            <button type="button" name="screech-btn">Screech</button>
+          </section>
+          <div class="screech-container">
+            <img src="" alt="screecher-profile-pic">
+            <h2 class="name"><a href="#">name</a></h2>
+            <h3 class="username"><a href="#">username</a></h3>
+            <ul class="screech-body">
+            <a href="#"><i class="fa fa-reply" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-retweet" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+            </ul>
+          </div>
+        </main>
 
-      <header class="primary-header">
-        <a href="#"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
-        <a href="#"><i class="fa fa-bolt" aria-hidden="true"></i>Moments</a>
-        <a href="#"><i class="fa fa-bell" aria-hidden="true"></i>Notifications</a>
-        <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>Messages</a>
-        <img class="grackle-img" src="app/images/Grackles_001.png" alt="">
-        <input class="search-input"type="text" name="" placeholder="search grackle">
-        <a href="#"><img src="" alt="profile image"></a>
-        <a href="#"><img src="" alt="screech-box"></a>
+        <aside class="information-aside">
+            <aside class="profile-column">
+                <img src="" alt="profile-background">
+                <img src="" alt="profile-pic">
+                <h2><a href="#">name</a></h2>
+                <h3><a href="#">username</a></h3>
+                <h6>SCREECHES</h6>
+                <h6>PLAGUING</h6>
+                <h6>PLAGUERS</h6>
 
-      </header>
-      <!-- All HTML placed here will be erased when the app is running -->
+            </aside>
+            <aside class="aside-column trending-column">
+                <h3>Trends</h3>
+                <h5><a href="#">Change</a></h5>
+                <ul>
+                    <li>#stealingchipsatMaudies</li>
+                    <li>#BartonCreekMallgathering</li>
+                    <li>nightmaremakers</li>
+                    <li>austinlovestohateus</li>
+                </ul>
+            </aside>
+            <aside class="aside-column who-to-follow-column">
+                <h3>Who to follow</h3>
+                <h5><a href="#">Refresh</a><a href="#">View all</a> </h5>
+                <div class="profiles-in-column">
+                    <img src="" alt="">
+                    <h5>Name</h5>
+                    <h6>username</h6>
+                    <button class="follow-btn" type="button" name="follow-button">FOLLOW</button>
+                </div>
+            </aside>
+        </aside>
+        <!-- All HTML placed here will be erased when the app is running -->
 
     </section>
     <script src="./app.js"></script>
-  </body>
+</body>
+
 </html>
