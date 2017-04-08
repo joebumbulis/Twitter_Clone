@@ -29,6 +29,7 @@ export default function app() {
 
             case "STARTING_USER_LOGIN":
                 console.log("Starting Login");
+                //create timeOut feature for loading animation
                 return state;
 
             case "AUTHENTICATED_USER":

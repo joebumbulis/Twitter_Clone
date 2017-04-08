@@ -1,5 +1,7 @@
-export default function logAndLoad (email, password) {
-  // state = store.getState()
+export default function logAndLoad (store, email, password) {
+  var token = dispatch(userToken)
+  console.log(token);
+
   /*
   *   Action to Login user and load all screeches
   */
@@ -7,8 +9,6 @@ export default function logAndLoad (email, password) {
   return function (dispatch) {
     //Before ajax call dispatch any needed actions
     dispatch( { type: "STARTING_USER_LOGIN" });
-    console.log(email);
-    console.log(password);
     //Do the ajax call
     return  $.ajax({
       //fill in with post to login user
@@ -25,11 +25,11 @@ export default function logAndLoad (email, password) {
         login: email,
         password: password
       })
-    }).then( (response, status) => {
-      console.log(response, status);
+    }).then( (response) => {
+      console.log(response);
       //After the ajax call dispatch any needed actions
       dispatch({
-        type: "AUTHENTICATED_USER",
+        type: 'AUTHENTICATED_USER',
         userID: response.ownerId,
         userToken: response['user-token'],
         username: response.username,
@@ -39,20 +39,20 @@ export default function logAndLoad (email, password) {
         joinedDate: new Date(response.created)
        });
     }).then( ()=> {
-      console.log();
+      // console.log(store.getState().userToken);
       //This GET request is to load the screechessss
       $.ajax({
         type: 'GET',
         dataType: 'json',
-        url: 'https://api.backendless.com/v1/data/messages',
+        url: 'https://api.backendless.com/v1/data/message',
         headers: {
           'application-id': "85577861-2A70-62E0-FFC7-B56EDDAFC300",
           "secret-key": "71A87D8E-1294-CD5F-FFF6-C9311CC4CD00",
-          'user-token': state.Token
+          'user-token': state.userToken
         }
-      }).then(function (response) {
+      }).then( (response, status) => {
         //The screechessss
-        console.log(response);
+        console.log(response, status);
         // var screeches = response.data.map((screech)=>{
         //   let screeches = {
         //     bio: screech.body,
