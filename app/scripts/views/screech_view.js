@@ -1,12 +1,13 @@
 export default function screechView(store) {
-  // let state = store.getState();
-  // var token = state.userToken;
-  // console.log(token);
+  let state = store.getState();
+  let user = state.user;
+  let screechesBody = state.screeches.body;
 
   //Create the HTML
   let $html = $(`
     <div class="feed-screen">
-    "Screeches!"
+    "Screeches!" from ${user}
+    ${screechesBody}
     </div>
     `);
 

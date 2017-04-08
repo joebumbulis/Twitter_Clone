@@ -1,12 +1,12 @@
 export default function logAndLoad (store, email, password) {
-  var token = dispatch(userToken)
-  console.log(token);
-
+  var state = store.getState();
+  console.log(state);
   /*
   *   Action to Login user and load all screeches
   */
   //All async action creators should return a function that takes 'dispatch' as its argument
   return function (dispatch) {
+
     //Before ajax call dispatch any needed actions
     dispatch( { type: "STARTING_USER_LOGIN" });
     //Do the ajax call
@@ -48,23 +48,23 @@ export default function logAndLoad (store, email, password) {
         headers: {
           'application-id': "85577861-2A70-62E0-FFC7-B56EDDAFC300",
           "secret-key": "71A87D8E-1294-CD5F-FFF6-C9311CC4CD00",
-          'user-token': state.userToken
+          'user-token': state.userToken,
         }
       }).then( (response, status) => {
         //The screechessss
-        console.log(response, status);
-        // var screeches = response.data.map((screech)=>{
-        //   let screeches = {
-        //     bio: screech.body,
-        //     chip: screech.chip,
-        //     user: screech.user,
-        //     date: new Date(screech.created),
-        //   };
-        //   dispatch({
-        //     type: "LOADED_SCREECHES",
-        //     screeches: screeches
-        //   })
-        // })
+        console.log(response.data, status);
+        var screeches = response.data.map((screech)=>{
+          let screeches = {
+            body: screech.body,
+            chip: screech.chip,
+            user: screech.user,
+            date: new Date(screech.created)
+          };
+          dispatch({
+            type: "LOADED_SCREECHES",
+            screeches: screeches
+          })
+        })
       });
     })
   }

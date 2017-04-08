@@ -20,7 +20,7 @@ $($html).find('.login-btn').on('click', (e) => {
   // if (action.email === '' || action.password === '') {
   //     alert('Complete Form')
   // } else {
-  store.dispatch(logAndLoad('joebumbulis@gmail.com', 'password'));
+  store.dispatch(logAndLoad(store, 'joebumbulis@gmail.com', 'password'));
 });
 
   //Return the html
