@@ -10,10 +10,13 @@ html {
         background: #fff;
         position: relative;
     }
+    .feed-body {
+      background: $color-greyThree;
+    }
+
 }
 
-//ask justin about media queries syntax.
-      // @media all and (min-width: 375px) and (max-width: 599px) {
+
     .login-screen {
         text-align: center;
         font-family: $font-family-primary;

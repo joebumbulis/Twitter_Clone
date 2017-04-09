@@ -1,4 +1,15 @@
 .information-aside {
   float: left;
-  margin-top: 10rem;
+  margin-top: 8rem;
+  text-decoration: none;
+  font-family: $font-family-primary;
+  width: 27%;
+
+
+  h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
 }

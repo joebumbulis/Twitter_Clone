@@ -1,4 +1,40 @@
+
 .screech-feed {
-  float: right;
-  margin-top: 8rem;
+    float: left;
+    margin-top: 8rem;
+    width: 70%;
+
+    .post-screech-feed-top {}
+    background: $color-greenTwo;
+    color: $color-greenOne;
+    img {
+        width: 40px;
+        border-radius: 100%;
+        padding-top : 1rem;
+    }
+    input {
+      background: $color-fifth;
+      color: $color-greenOne;
+      width: 70%;
+      height: 2rem;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      border-radius: .3rem;
+      padding-left: 1rem;
+      border: none;
+    }
+
+    button {
+        display: inline-block;
+        background: $color-greenOne;
+        font-size: 1rem;
+        font-family: $font-family-primary;
+        color: $color-greenTwo;
+        padding: 1rem 0.2rem;
+        border: none;
+    }
+
+    .screech-container {
+      background: #fff;
+    }
 }
