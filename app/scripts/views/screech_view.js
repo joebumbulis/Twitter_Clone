@@ -1,7 +1,8 @@
 export default function screechView(store) {
     let state = store.getState();
-    let user = state.user;
-    let screechesBody = state.screeches.body;
+    // let screech = state.screech;
+    // let user = state.user;
+    // let screechesBody = state.screeches.body;
 
     //Create the HTML
     let $html = $(`
@@ -24,8 +25,8 @@ export default function screechView(store) {
             <aside class="profile-column">
                 <img src="" alt="profile-background">
                 <img src="" alt="profile-pic">
-                <h2><a href="#">${name}</a></h2>
-                <h3><a href="#">${username}</a></h3>
+                <h2><a href="#">${state.name}</a></h2>
+                <h3><a href="#">${state.user}</a></h3>
                 <h6>SCREECHES</h6>
                 <h6>PLAGUING</h6>
                 <h6>PLAGUERS</h6>
@@ -46,8 +47,8 @@ export default function screechView(store) {
                 <h5><a href="#">Refresh</a><a href="#">View all</a> </h5>
                 <div class="profiles-in-column">
                     <img src="" alt="">
-                    <h5>${name}</h5>
-                    <h6>${user}</h6>
+                    <h5></h5>
+                    <h6>$</h6>
                     <button class="follow-btn" type="button" name="follow-button">FOLLOW</button>
                 </div>
             </aside>
@@ -60,19 +61,26 @@ export default function screechView(store) {
                 <button type="button" name="screech-btn">Screech</button>
             </section>
             <div class="screech-container">
-                <img src="https://pbs.twimg.com/profile_images/840251399304806403/__JeV4ux.jpg" alt="screecher-profile-pic">
-                <h2 class="${screeches.name}"><a href="#">name</a></h2>
-                <h3 class="${screeches.user}"><a href="#">username</a></h3>
-                <div class="screech-body">${screeches.body}</div>
-                <a href="#"><i class="fa fa-reply" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-retweet" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
 
             </div>
         </main>
     </div>
     `);
+var screechContainer = $html.find('.screech-container');
+
+store.getState().screeches.forEach((screech)=>{
+  console.log(screech);
+})
+    //
+    // <img src="https://pbs.twimg.com/profile_images/840251399304806403/__JeV4ux.jpg" alt="screecher-profile-pic">
+    // <h2 class="name"><a href="#">name</a></h2>
+    // <h3 class="username"><a href="#">username</a></h3>
+    // <div class="screech-body"></div>
+    // <a href="#"><i class="fa fa-reply" aria-hidden="true"></i></a>
+    // <a href="#"><i class="fa fa-retweet" aria-hidden="true"></i></a>
+    // <a href="#"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
+    // <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+
 
     //Assign any event listeners
     $($html).find('.login-btn').on('click', (e) => {
