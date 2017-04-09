@@ -9,9 +9,9 @@
     color: $color-greenOne;
     img {
         width: 40px;
-        border-radius: 100%;
-        padding-top : 1rem;
-    }
+        border-radius: .5rem;
+        margin-top: 1rem
+      }
     input {
       background: $color-fifth;
       color: $color-greenOne;
@@ -35,6 +35,34 @@
     }
 
     .screech-container {
+      font-family: $font-family-primary;
       background: #fff;
+      border-top: solid .1rem $color-greyFour;
+      border-bottom: solid .1rem $color-greyFour;
+
+    }
+    img {
+      float: left;
+    }
+    .name {
+      display: inline-block;
+      margin: 0 1rem .5rem 0rem;
+      color: #000;
+    }
+  .username {
+      display: inline-block;
+      margin: 0 1rem .5rem 0rem;;
+    }
+    a {
+      text-decoration: none;
+      color:$color-greyThree;
+    }
+    .screech-body {
+      margin: .1rem 0 0 .5rem;
+      color: #000;
+    }
+    .fa {
+      margin-left: 3rem;
+      margin-top: .6rem;
     }
 }
