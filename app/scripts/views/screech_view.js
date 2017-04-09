@@ -70,16 +70,19 @@ var screechContainer = $html.find('.screech-container');
 
 store.getState().screeches.forEach((screech)=>{
   console.log(screech);
+    var screechLoaded = $(`
+    <img src="https://pbs.twimg.com/profile_images/840251399304806403/__JeV4ux.jpg" alt="screecher-profile-pic">
+    <h2 class="name"><a href="#">${screech.name}</a></h2>
+    <h3 class="username"><a href="#">${screech.username}</a></h3>
+    <div class="screech-body">${screech.body}</div>
+    <a href="#"><i class="fa fa-reply" aria-hidden="true"></i></a>
+    <a href="#"><i class="fa fa-retweet" aria-hidden="true"></i></a>
+    <a href="#"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
+    <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+    `)
+    screechContainer.after(screechLoaded)
 })
-    //
-    // <img src="https://pbs.twimg.com/profile_images/840251399304806403/__JeV4ux.jpg" alt="screecher-profile-pic">
-    // <h2 class="name"><a href="#">name</a></h2>
-    // <h3 class="username"><a href="#">username</a></h3>
-    // <div class="screech-body"></div>
-    // <a href="#"><i class="fa fa-reply" aria-hidden="true"></i></a>
-    // <a href="#"><i class="fa fa-retweet" aria-hidden="true"></i></a>
-    // <a href="#"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
-    // <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+
 
 
     //Assign any event listeners
