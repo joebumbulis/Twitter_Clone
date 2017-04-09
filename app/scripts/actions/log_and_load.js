@@ -52,18 +52,21 @@ export default function logAndLoad (store, email, password) {
         }
       }).then( (response, status) => {
         //The screechessss
-        console.log(response.data, status);
+        console.log('matt',response.data, status);
         var screeches = response.data.map((screech)=>{
-          let screeches = {
+          console.log(screech)
+          return {
             body: screech.body,
             chip: screech.chip,
-            user: screech.user,
+            user: screech.username,
+            name: screech.name,
             date: new Date(screech.created)
           };
-          dispatch({
-            type: "LOADED_SCREECHES",
-            screeches: screeches
-          })
+        })
+        console.log(screeches);
+        dispatch({
+          type: "LOADED_SCREECHES",
+          screeches: screeches
         })
       });
     })

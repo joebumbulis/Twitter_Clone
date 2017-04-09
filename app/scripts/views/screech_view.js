@@ -1,10 +1,10 @@
 export default function screechView(store) {
-  let state = store.getState();
-  let user = state.user;
-  let screechesBody = state.screeches.body;
+    let state = store.getState();
+    let user = state.user;
+    let screechesBody = state.screeches.body;
 
-  //Create the HTML
-  let $html = $(`
+    //Create the HTML
+    let $html = $(`
     <header class="primary-header">
         <a href="#"><i class="fa fa-home" aria-hidden="true"></i><h6 class="header-nav-words">Home</h6></a>
         <a href="#"><i class="fa fa-bolt" aria-hidden="true"></i><h6 class="header-nav-words">Moments</h6></a>
@@ -74,13 +74,13 @@ export default function screechView(store) {
     </div>
     `);
 
-  //Assign any event listeners
-$($html).find('.login-btn').on('click', (e) => {
-  store.dispatch({
+    //Assign any event listeners
+    $($html).find('.login-btn').on('click', (e) => {
+        store.dispatch({
 
-  })
-})
+        })
+    })
 
-  //Return the html
-  return $html;
+    //Return the html
+    return $html;
 }

@@ -48,7 +48,6 @@ export default function app() {
 
 
             case "LOADED_SCREECHES":
-                console.log('Screeches Loaded');
                 var newState = {
                   screeches: action.screeches,
                   view: screechView
