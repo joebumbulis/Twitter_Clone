@@ -1,6 +1,8 @@
 
 ## Twitter Clone
 
+[See the project live here](http://joebum-day-29.surge.sh/#)
+
 Its time to make a twitter of our own design
 
 ### Create a twitter clone!
