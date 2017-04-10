@@ -39,7 +39,7 @@ export default function app() {
                     // Fill in data sent with dispatch
                     id: action.userID,
                     userToken: action.userToken,
-                    user: action.username,
+                    username: action.username,
                     name: action.name,
                     bio: action.bio,
                     email: action.email,

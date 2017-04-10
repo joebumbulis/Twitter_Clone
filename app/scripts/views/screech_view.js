@@ -3,7 +3,7 @@ import postScreech from '../actions/post_screech.js';
 export default function screechView(store) {
     let state = store.getState();
     var name = state.name
-    var username = state.user
+    var username = state.username
     // let screech = state.screech;
     // let user = state.user;
     // let screechesBody = state.screeches.body;
@@ -27,10 +27,10 @@ export default function screechView(store) {
     <div class="feed-body">
         <aside class="information-aside">
             <aside class="profile-column">
-                <img src="" alt="profile-background">
-                <img src="" alt="profile-pic">
-                <h2><a href="#">${state.name}</a></h2>
-                <h3><a href="#">${state.user}</a></h3>
+
+                <img src="https://pbs.twimg.com/profile_images/840251399304806403/__JeV4ux.jpg" alt="profile-pic">
+                <h2><a href="#">${name}</a></h2>
+                <h3><a href="#">${username}</a></h3>
                 <h6>SCREECHES</h6>
                 <h6>PLAGUING</h6>
                 <h6>PLAGUERS</h6>
@@ -72,45 +72,43 @@ export default function screechView(store) {
 
     `);
     var screechContainer = $html.find('.screech-container');
-
     var screechesArray = store.getState().screeches
-    // screechesArray.reverse()
-
     screechesArray.reverse().forEach((screech) => {
+
         var screechLoaded = $(`
     <div class="single-screech">
-    <img src="https://pbs.twimg.com/profile_images/840251399304806403/__JeV4ux.jpg" alt="screecher-profile-pic">
-    <h2 class="name"><a href="#">${screech.name}</a></h2>
-    <h3 class="username"><a href="#">${screech.user}</a></h3>
-    <div class="screech-body">${screech.body}</div>
-    <a href="#"><i class="fa fa-reply" aria-hidden="true"></i></a>
-    <a href="#"><i class="fa fa-retweet" aria-hidden="true"></i></a>
-    <a href="#"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
-    <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+      <img src="https://pbs.twimg.com/profile_images/840251399304806403/__JeV4ux.jpg" alt="screecher-profile-pic">
+      <h2 class="name"><a href="#">${screech.name}</a></h2>
+      <h3 class="username"><a href="#">${screech.username}</a></h3>
+      <div class="screech-body">${screech.body}</div>
+      <a href="#"><i class="fa fa-reply" aria-hidden="true"></i></a>
+      <a href="#"><i class="fa fa-retweet" aria-hidden="true"></i></a>
+      <a href="#"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
+      <i class="fa fa-trash"  aria-hidden="true" class="hidden delete-btn" type="button"></i>
+      <a class="hidden" href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
     </div>
-
     `)
         screechContainer.prepend(screechLoaded)
+        // if (username !== screech.username) {
+        //     screechLoaded.removeClass('hidden')
+        // }
     })
-
-
 
     //Assign any event listeners
     $html.find('.screech-btn').on('click', (e) => {
-      console.log('JOE');
-      // let state = store.getState();
-      let body = $html.find('.screech-input').val();
-      if (body){
-        postScreech(store, name, username, body)
-      } else {
-        console.log("Error: Cannot send a blank message");
-      }
+        console.log('JOE');
+        let body = $html.find('.screech-input').val();
+        if (body) {
+            postScreech(store, name, username, body)
+        } else {
+            console.log("Error: Cannot send a blank message");
+        }
 
-        // store.dispatch({
-        //
-        //   // let timeSent = Moment().
-        //
-        // })
+
+        screechLoaded.find('.fa-trash').on('click', (e) => {
+            console.log('JOE SUP!');
+        })
+
     })
 
     //Return the html
