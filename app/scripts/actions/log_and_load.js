@@ -1,6 +1,5 @@
 export default function logAndLoad (store, email, password) {
   var state = store.getState();
-  console.log(state);
   /*
   *   Action to Login user and load all screeches
   */
@@ -26,7 +25,6 @@ export default function logAndLoad (store, email, password) {
         password: password
       })
     }).then( (response) => {
-      console.log(response);
       //After the ajax call dispatch any needed actions
       dispatch({
         type: 'AUTHENTICATED_USER',
@@ -52,13 +50,11 @@ export default function logAndLoad (store, email, password) {
         }
       }).then( (response, status) => {
         //The screechessss
-        console.log('matt',response.data, status);
         var screeches = response.data.map((screech)=>{
-          console.log(screech)
           return {
             body: screech.body,
             chip: screech.chip,
-            user: screech.username,
+            username: screech.username,
             name: screech.name,
             date: new Date(screech.created)
           };

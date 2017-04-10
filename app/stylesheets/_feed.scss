@@ -1,4 +1,3 @@
-
 .screech-feed {
     float: left;
     margin-top: 8rem;
@@ -7,21 +6,23 @@
     .post-screech-feed-top {}
     background: $color-greenTwo;
     color: $color-greenOne;
+
     img {
         width: 40px;
-        border-radius: .5rem;
-        margin-top: 1rem
-      }
+        border-radius: 0.5rem;
+        margin-top: 1rem;
+    }
+
     input {
-      background: $color-fifth;
-      color: $color-greenOne;
-      width: 70%;
-      height: 2rem;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      border-radius: .3rem;
-      padding-left: 1rem;
-      border: none;
+        background: $color-fifth;
+        color: $color-greenOne;
+        width: 70%;
+        height: 2rem;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 0.3rem;
+        padding-left: 1rem;
+        border: none;
     }
 
     button {
@@ -32,37 +33,50 @@
         color: $color-greenTwo;
         padding: 1rem 0.2rem;
         border: none;
+        cursor: pointer;
     }
 
     .screech-container {
-      font-family: $font-family-primary;
-      background: #fff;
-      border-top: solid .1rem $color-greyFour;
-      border-bottom: solid .1rem $color-greyFour;
+        font-family: $font-family-primary;
+        background: #fff;
 
+        .single-screech {
+            border-bottom: solid 0.1rem $color-greyFour;
+            // border-top: solid .1rem $color-greyFour;
+        }
     }
+
     img {
-      float: left;
+        display: inline-block;
     }
+
     .name {
-      display: inline-block;
-      margin: 0 1rem .5rem 0rem;
-      color: #000;
+        display: inline-block;
+        margin: 0 1rem 0.5rem 0;
+        color: #000;
     }
-  .username {
-      display: inline-block;
-      margin: 0 1rem .5rem 0rem;;
+
+    .username {
+        display: inline-block;
+        margin: 0 1rem 0.5rem 0;
     }
+
     a {
-      text-decoration: none;
-      color:$color-greyThree;
+        text-decoration: none;
+        color: $color-greyThree;
     }
+
     .screech-body {
-      margin: .1rem 0 0 .5rem;
-      color: #000;
+        margin: 0.1rem 0 0 0.5rem;
+        color: #000;
     }
+
     .fa {
-      margin-left: 3rem;
-      margin-top: .6rem;
+        margin-left: 3rem;
+        margin-top: 0.6rem;
+    }
+
+    .fa-trash {
+        margin-right: 20rem;
     }
 }

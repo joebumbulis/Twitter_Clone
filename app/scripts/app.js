@@ -9,6 +9,7 @@ import utils from './utils.js'
 import loginView from './views/login_view.js'
 import logAndLoad from './actions/log_and_load.js'
 import screechView from './views/screech_view.js'
+import postScreech from './actions/post_screech.js'
 
 export default function app() {
 
@@ -54,6 +55,16 @@ export default function app() {
                 }
                 return Object.assign({}, state, newState);
 
+            case "ADD_SCREECH":
+              var screeches = store.getState().screeches
+
+              var newScreech = {
+                  name: action.name,
+                  username: action.username,
+                  body: action.body
+              }
+              screeches.push(newScreech)
+              return Object.assign({}, state, {screeches: screeches.reverse()})
                 // return utils.copystate(currentState, {
                 //     // loadingScreeches: true,
                 //     currentUser: action.email,
