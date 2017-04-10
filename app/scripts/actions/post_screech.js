@@ -18,13 +18,18 @@ export default function postScreech(store, name, username, body) {
           "username": username,
           "body": body
         })
-    }).then((screech, status)=>{
+    }).then(()=>{
       store.dispatch({
         type: 'ADD_SCREECH',
         name: name,
         username: username,
-        body: body
+        body: body,
       })
     })
-
-}
+    // .then(()=>{
+      // store.dispatch({
+      //   type: 'LOAD_SCREECHES'
+      //
+      // })
+    // })
+  };

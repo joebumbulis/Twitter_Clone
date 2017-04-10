@@ -61,15 +61,15 @@ export default function app() {
               var newScreech = {
                   name: action.name,
                   username: action.username,
-                  body: action.body
+                  body: action.body,
+
               }
               screeches.push(newScreech)
               return Object.assign({}, state, {screeches: screeches.reverse()})
-                // return utils.copystate(currentState, {
-                //     // loadingScreeches: true,
-                //     currentUser: action.email,
-                //     view: screechView
-                // });
+
+            // case "LOAD_SCREECHES":
+            //     return state;
+
 
 
 

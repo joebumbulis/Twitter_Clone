@@ -1,5 +1,5 @@
 import postScreech from '../actions/post_screech.js';
-
+import deleteScreech from '../actions/delete_screech.js'
 export default function screechView(store) {
     let state = store.getState();
     var name = state.name
@@ -97,7 +97,7 @@ export default function screechView(store) {
 
         $screechLoaded.find('.fa-trash').on('click', (e) => {
           console.log(screech.objectId);
-          deleteScreech(store, screech.objectId)
+          deleteScreech(store, screech.objectId, $screechLoaded)
         })
         $screechLoaded.find('.fa-pencil').on('click', (e) => {
 

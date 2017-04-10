@@ -60,7 +60,6 @@ export default function logAndLoad (store, email, password) {
             date: new Date(screech.created)
           };
         })
-        console.log(screeches);
         dispatch({
           type: "LOADED_SCREECHES",
           screeches: screeches
