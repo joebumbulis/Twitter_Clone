@@ -75,7 +75,7 @@ export default function screechView(store) {
     var screechesArray = store.getState().screeches
     screechesArray.reverse().forEach((screech) => {
 
-        var screechLoaded = $(`
+        var $screechLoaded = $(`
     <div class="single-screech">
       <img src="https://pbs.twimg.com/profile_images/840251399304806403/__JeV4ux.jpg" alt="screecher-profile-pic">
       <h2 class="name"><a href="#">${screech.name}</a></h2>
@@ -84,14 +84,22 @@ export default function screechView(store) {
       <a href="#"><i class="fa fa-reply" aria-hidden="true"></i></a>
       <a href="#"><i class="fa fa-retweet" aria-hidden="true"></i></a>
       <a href="#"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
-      <i class="fa fa-trash"  aria-hidden="true" class="hidden delete-btn" type="button"></i>
+      <a href="#"><i class="fa fa-trash"  aria-hidden="true"></i></a>
       <a class="hidden" href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
     </div>
     `)
-        screechContainer.prepend(screechLoaded)
+        screechContainer.prepend($screechLoaded)
         // if (username !== screech.username) {
         //     screechLoaded.removeClass('hidden')
         // }
+        $screechLoaded.find('.fa-trash').on('click', (e) => {
+          console.log(e);
+          // deleteScreech(store, )
+        })
+        $screechLoaded.find('.fa-pencil').on('click', (e) => {
+
+        })
+
     })
 
     //Assign any event listeners
@@ -103,13 +111,11 @@ export default function screechView(store) {
         } else {
             console.log("Error: Cannot send a blank message");
         }
-
-
-        screechLoaded.find('.fa-trash').on('click', (e) => {
-            console.log('JOE SUP!');
-        })
-
     })
+
+
+
+
 
     //Return the html
     return $html;
