@@ -56,6 +56,7 @@ export default function logAndLoad (store, email, password) {
             chip: screech.chip,
             username: screech.username,
             name: screech.name,
+            objectId: screech.objectId,
             date: new Date(screech.created)
           };
         })

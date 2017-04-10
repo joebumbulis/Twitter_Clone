@@ -74,31 +74,35 @@ export default function screechView(store) {
     var screechContainer = $html.find('.screech-container');
     var screechesArray = store.getState().screeches
     screechesArray.reverse().forEach((screech) => {
-
+        console.log("hi", screech.objectId);
         var $screechLoaded = $(`
-    <div class="single-screech">
-      <img src="https://pbs.twimg.com/profile_images/840251399304806403/__JeV4ux.jpg" alt="screecher-profile-pic">
-      <h2 class="name"><a href="#">${screech.name}</a></h2>
-      <h3 class="username"><a href="#">${screech.username}</a></h3>
-      <div class="screech-body">${screech.body}</div>
-      <a href="#"><i class="fa fa-reply" aria-hidden="true"></i></a>
-      <a href="#"><i class="fa fa-retweet" aria-hidden="true"></i></a>
-      <a href="#"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
-      <a href="#"><i class="fa fa-trash"  aria-hidden="true"></i></a>
-      <a class="hidden" href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-    </div>
-    `)
-        screechContainer.prepend($screechLoaded)
-        // if (username !== screech.username) {
-        //     screechLoaded.removeClass('hidden')
-        // }
+          <div class="single-screech">
+            <img src="https://pbs.twimg.com/profile_images/840251399304806403/__JeV4ux.jpg" alt="screecher-profile-pic">
+            <h2 class="name"><a href="#">${screech.name}</a></h2>
+            <h3 class="username"><a href="#">${screech.username}</a></h3>
+            <div class="screech-body">${screech.body}</div>
+            <a href="#"><i class="fa fa-reply" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-retweet" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
+          </div>
+          `)
+
+        if (username === screech.username) {
+          var userTools = $(`
+            <a href="#"><i class="fa fa-trash"  aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>`
+          )
+          $screechLoaded.append(userTools)
+        }
+
         $screechLoaded.find('.fa-trash').on('click', (e) => {
-          console.log(e);
-          // deleteScreech(store, )
+          console.log(screech.objectId);
+          deleteScreech(store, screech.objectId)
         })
         $screechLoaded.find('.fa-pencil').on('click', (e) => {
 
         })
+        screechContainer.prepend($screechLoaded)
 
     })
 
